@@ -1,2 +1,3 @@
 # 365_days_learning_challenge
 Started a 365-day learning challenge on 19 Dec 2025, sharing my daily learning and hands-on practice on LinkedIn and GitHub.
+Day 1 - Added Day 1 with my setup status

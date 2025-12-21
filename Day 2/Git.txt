@@ -1,0 +1,20 @@
+Git Learning – Initial Setup & First Commit
+
+Created a new directory named my-time-machine using the command mkdir my-time-machine.
+
+Navigated into the directory using cd my-time-machine (used Tab autocomplete to quickly complete the directory name).
+
+Initialized a new Git repository in the current directory using git init.
+
+Checked the repository status using git status.
+
+Created a new file (message.txt) and added some content to it.
+
+Verified the file content using the cat command.
+
+Staged the file for commit using git add message.txt.
+
+Made the first commit with a meaningful commit message using git commit -m.
+
+Viewed the commit history using the git log command.
+

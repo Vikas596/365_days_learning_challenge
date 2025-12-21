@@ -1,0 +1,141 @@
+Day 3 – Git Configuration (git-config-lab)
+
+Today I learned how to view, configure, and manage Git settings using the git config command. These configurations control how Git behaves globally and locally for repositories.
+
+1️⃣ Project Setup
+
+Created a new directory named git-config-lab using:
+
+mkdir git-config-lab
+
+
+Navigated into the directory:
+
+cd git-config-lab
+
+2️⃣ Viewing Git Configuration
+
+Displayed all currently configured Git settings:
+
+git config --list
+
+
+Explanation:
+This command shows all Git configuration values from system, global, and local levels.
+
+3️⃣ User Identity Configuration (Global Level)
+
+Checked the current Git username:
+
+git config user.name
+
+
+Set the global Git username:
+
+git config --global user.name "Your Name"
+
+
+Set the global Git email:
+
+git config --global user.email "your.email@example.com"
+
+
+Verified global username and email:
+
+git config --global user.name
+git config --global user.email
+
+
+Explanation:
+Git uses this name and email to identify the author of every commit.
+
+4️⃣ Enabling Colored Output
+
+Enabled automatic colored output:
+
+git config --global color.ui auto
+
+
+Verified color settings:
+
+git config --global color.ui
+
+
+Explanation:
+Colored output improves readability of Git commands like status, log, and diff.
+
+5️⃣ Setting Default Text Editor
+
+Set Nano as the default editor:
+
+git config --global core.editor nano
+
+
+Verified editor configuration:
+
+git config --global core.editor
+
+
+Explanation:
+This editor opens when Git requires a commit message or manual input.
+
+6️⃣ Line Ending Configuration (Linux/Mac Friendly)
+
+Configured Git to handle line endings correctly:
+
+git config --global core.autocrlf input
+
+
+Verified the setting:
+
+git config --global core.autocrlf
+
+
+Explanation:
+input converts CRLF to LF on commit but leaves LF unchanged on checkout.
+
+7️⃣ Creating Git Aliases
+
+Created a shortcut for git status:
+
+git config --global alias.st status
+
+
+Created a powerful alias for formatted logs:
+
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+
+Verified aliases:
+
+git config --global alias.st
+git config --global alias.lg
+
+
+Explanation:
+Aliases help reduce typing and improve productivity.
+
+8️⃣ Local vs Global Configuration
+
+Navigated back to the project directory:
+
+cd ~/project/git-config-lab
+
+
+Set a local username for this repository only:
+
+git config user.name "Lab User"
+
+
+Verified local username:
+
+git config user.name
+
+
+Checked the global username for comparison:
+
+git config --global user.name
+
+
+Explanation:
+Local config overrides global config only for this repository.

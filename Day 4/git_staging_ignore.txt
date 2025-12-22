@@ -1,0 +1,51 @@
+Day 4 – Git Staging Area & Change Management
+
+Today, I practiced how Git handles files before committing, focusing on the staging area, ignored files, viewing changes, and unstaging.
+
+🔹 What I did today
+
+Created a new lab directory and initialized a Git repository:
+
+mkdir git-staging-lab
+cd git-staging-lab
+git init
+
+
+Created a Python file and added it to the staging area:
+
+echo "print('Hello, Git!')" > hello.py
+git add hello.py
+git status
+
+
+Learned how Git shows staged files using git status.
+
+Created a .gitignore file to ignore log files:
+
+echo "*.log" > .gitignore
+echo "This is a log file" > debug.log
+
+
+Verified that ignored files are not tracked by Git:
+
+git status
+
+
+Added .gitignore to staging and committed changes:
+
+git add .gitignore
+git commit -m "Initial commit with hello.py and .gitignore"
+
+
+Modified the tracked file and checked changes before committing:
+
+git diff
+
+
+Unstaged a file without losing changes:
+
+git restore --staged hello.py
+
+🧠 Key takeaway
+
+The staging area allows precise control over what goes into a commit, helping maintain clean and meaningful commit history.

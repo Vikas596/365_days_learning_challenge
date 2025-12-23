@@ -1,0 +1,64 @@
+Day 5 – Git Branching & Merging (Hands-on)
+
+Today I practiced Git branching, switching branches, merging, and cleaning up branches using a real lab setup.
+
+🔹 What I did today
+1️⃣ Repository Setup
+mkdir git-branch-lab
+cd git-branch-lab
+git init
+
+2️⃣ Create Initial Files
+echo "# Git Branch Lab" > README.md
+echo "This is my hub for multiversal Git branch experiments" >> README.md
+
+3️⃣ Create and View Branches
+git branch feature-dimension
+git branch
+
+
+Output:
+
+  feature-dimension
+* master
+
+
+➡ * indicates the current branch (master).
+
+4️⃣ Switch to Feature Branch
+git checkout feature-dimension
+# OR (recommended newer command)
+git switch feature-dimension
+
+5️⃣ Create New File in Feature Branch
+echo "This is a powerful artifact from another dimension" > dimensional-artifact.txt
+git add dimensional-artifact.txt
+git commit -m "Create a powerful interdimensional artifact"
+
+6️⃣ Update README in Feature Branch
+echo "#### Feature Dimension" >> README.md
+echo "We've discovered a powerful artifact in this reality" >> README.md
+git add README.md
+git commit -m "Document the discovery of the artifact"
+
+7️⃣ Merge Feature Branch into Master
+git checkout master
+git merge feature-dimension
+
+
+Merge Output:
+
+Fast-forward
+ README.md                 | 2 ++
+ dimensional-artifact.txt | 1 +
+
+8️⃣ Verify Merged Content
+cat dimensional-artifact.txt
+cat README.md
+
+9️⃣ Delete Feature Branch
+git branch -d feature-dimension
+
+🧠 Key Takeaway
+
+Branches allow safe experimentation. Once changes are tested and ready, they can be merged cleanly into the main branch.

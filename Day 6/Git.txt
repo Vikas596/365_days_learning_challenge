@@ -1,0 +1,50 @@
+Day 6 – Git Internals, History & Fixing Commits (Summary)
+
+Running git init creates the hidden .git folder, which is the core of a Git repository. It stores all data required to track changes and history.
+
+Important parts inside .git:
+
+HEAD → Points to the current branch/commit.
+
+config → Repository-specific configuration settings.
+
+objects/ → Stores commits, files, and changes in compressed form.
+
+refs/ → Tracks branches and tags.
+
+logs/ → Records movement of HEAD and branch history.
+
+You usually don’t touch .git directly, but understanding it helps you grasp how Git works internally.
+
+.gitignore is used to exclude files or folders you don’t want Git to track (logs, temp files, build artifacts, etc.).
+
+The .gitignore file should be committed so all contributors follow the same ignore rules.
+
+git log helps you view the commit history:
+
+Displays commit hash, author, date, and commit message.
+
+Each commit has a unique hash used to identify it.
+
+(HEAD -> main) means HEAD is pointing to the latest commit on the main branch.
+
+Advanced git log usage:
+
+git log -n 3 → Show the last 3 commits.
+
+git log --author="Name" → Filter commits by author.
+
+git log --grep="keyword" → Search commits by message content.
+
+git commit --amend is used to fix the most recent commit:
+
+Allows you to edit the last commit message or add missing staged changes.
+
+Rewrites the previous commit instead of creating a new one.
+
+Should be used only for local commits that haven’t been pushed to a remote repository.
+
+Avoid using it after pushing, as it rewrites history and can cause confusion for others.
+
+👉 Key takeaway:
+Day 6 focuses on understanding Git’s internal structure, managing ignored files, exploring commit history efficiently, and correcting recent mistakes cleanly using git commit --amend.

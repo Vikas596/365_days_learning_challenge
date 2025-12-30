@@ -1,0 +1,36 @@
+Day 7 – Docker Hub & Container Lifecycle (Summary)
+
+Docker Hub is a centralized online repository used to find, pull, and share Docker images. It allows developers to use pre-built images for applications like web servers and databases without creating images from scratch.
+
+docker run creates and starts a container in one step:
+
+Checks if the image exists locally.
+
+Pulls the image from Docker Hub if missing.
+
+Creates a container from the image.
+
+Starts the container immediately.
+
+docker pull is used to download images explicitly from Docker Hub (or another registry) without running them.
+
+Creating a container:
+
+docker create <image> creates a container but does not start it.
+
+You can assign a custom name using --name for easier management.
+
+Created containers appear with the status Created when checked using docker ps -a.
+
+Starting a container:
+
+docker start <container_name|container_id> starts an existing container.
+
+Unlike docker run, it does not create a new container.
+
+Stopping a container:
+
+docker stop <container_name|container_id> safely stops a running container.
+
+👉 Key takeaway:
+Docker Hub provides ready-to-use images, while Docker commands like run, pull, create, start, and stop help manage the full lifecycle of a container efficiently.

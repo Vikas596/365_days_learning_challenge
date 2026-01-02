@@ -1,0 +1,42 @@
+Day 8 – Git Branches & HEAD (Summary)
+
+Git branches allow you to work on new features or experiments without affecting the stable codebase. Each branch acts like an independent workspace where changes remain isolated until they are merged.
+
+The main (or master) branch is the default branch in a Git repository:
+
+Holds the stable, production-ready code.
+
+Acts as the final integration point for changes from other branches.
+
+Typically represents the version ready for release or deployment.
+
+HEAD is a pointer that shows your current position in the project’s history.
+
+It usually points to the latest commit of the branch you’re working on.
+
+In git log, HEAD is displayed next to the commit it references, along with the branch name.
+
+Viewing branches:
+
+git branch lists all local branches and highlights the current branch with *.
+
+git status also shows which branch you’re currently on.
+
+Creating a branch:
+
+git branch <branch_name> creates a new branch without switching to it.
+
+Switching branches:
+
+git checkout <branch_name> (older method).
+
+git switch <branch_name> (newer, clearer, and recommended).
+
+Create and switch in one step:
+
+git checkout -b <branch_name>
+
+git switch -c <branch_name>
+
+👉 Key takeaway:
+Branches help keep the main code stable while allowing safe experimentation, and HEAD always tells you exactly where you’re working.

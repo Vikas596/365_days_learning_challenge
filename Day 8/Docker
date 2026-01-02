@@ -1,0 +1,37 @@
+Day 8 – Dockerfile & Custom Image Creation (Summary)
+
+A Dockerfile is a text file containing a set of instructions used to build a Docker image.
+
+It must be named Dockerfile (capital D, no extension) so Docker can automatically detect it during the build process.
+
+Core Dockerfile Instructions
+
+FROM → Defines the base image (starting point) for your image. Every Dockerfile begins with this instruction.
+
+RUN → Executes commands during the image build process (e.g., installing packages or updating the system).
+
+COPY → Copies files from the host machine into the image’s filesystem.
+
+CMD → Defines the default command that runs when the container starts (not during build).
+
+Dockerfile Placement
+
+Best practice is to place the Dockerfile at the root of the project directory.
+
+Keeping the Dockerfile and required files together ensures Docker has the correct build context.
+
+Building a Custom Docker Image
+
+docker build is used to create an image from a Dockerfile.
+
+The -t flag assigns a tag/name to the image for easier management.
+
+The . (dot) specifies the current directory as the build context.
+
+Example:
+
+docker build -t custom-nginx .
+
+Key Takeaway
+
+A Dockerfile allows you to define application environments as code, making image creation repeatable, consistent, and version-controlled—a core concept in modern DevOps workflows.

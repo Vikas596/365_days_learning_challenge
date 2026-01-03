@@ -1,0 +1,67 @@
+Day 9 – Managing Unstaged Changes, Stash & Branch Maintenance
+
+Unstaged changes are modifications in the working directory that have not been added to the staging area using git add.
+
+Switching branches with unstaged changes can lead to conflicts, overwritten work, or confusion if not handled carefully.
+
+Handling Unstaged Changes When Switching Branches
+
+If modified files exist in the target branch, changes may be overwritten.
+
+If modified files do not exist in the target branch, changes usually remain, but should still be reviewed carefully.
+
+Best practice: stash or save changes before switching branches.
+
+Using git stash for Safe Branch Switching
+
+git stash temporarily saves work-in-progress changes and cleans the working directory.
+
+Useful when:
+
+Work is incomplete and not ready to commit.
+
+Switching branches for urgent fixes.
+
+Maintaining a clean commit history.
+
+Stash Commands
+
+git stash → Stash tracked files.
+
+git stash -u → Stash tracked + untracked files.
+
+git stash list → View all stashed entries.
+
+git stash apply → Reapply latest stash without removing it.
+
+git stash pop → Reapply and remove the stash.
+
+git stash apply stash@{n} → Apply a specific stash.
+
+git stash clear → Remove all stashes.
+
+Branch Maintenance
+
+Delete a merged branch safely:
+
+git branch -d <branch-name>
+
+
+Force delete an unmerged branch (use carefully):
+
+git branch -D <branch-name>
+
+Renaming Branches
+
+Rename the current branch:
+
+git branch -m <new-branch-name>
+
+
+Rename another branch:
+
+git branch -m <old-name> <new-name>
+
+Key Takeaway
+
+Proper handling of unstaged changes and effective use of git stash ensures safe context switching, while branch deletion and renaming help maintain a clean and organized repository.

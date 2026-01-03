@@ -1,0 +1,70 @@
+Day 9 – Docker Ports, EXPOSE & Port Mapping (Summary)
+
+Ports act as communication endpoints that allow containerized applications to interact with external clients.
+
+By default, applications running inside containers are not accessible from outside unless ports are explicitly mapped to the host system.
+
+Understanding EXPOSE
+
+The EXPOSE instruction in a Dockerfile documents which port the application listens on inside the container.
+
+It does not publish the port automatically.
+
+Example:
+
+EXPOSE 80
+
+Updating Dockerfile for Port Exposure
+
+Adding EXPOSE 80 clarifies that the Nginx server listens on port 80.
+
+Any Dockerfile change requires rebuilding the image to apply updates.
+
+Port Mapping with docker run
+
+Port mapping is done using the -p flag.
+
+Format:
+
+host_port:container_port
+
+
+Example:
+
+docker run -p 8080:80 custom-nginx
+
+
+Host port 8080 forwards traffic to container port 80.
+
+Creating & Starting a Container with Port Mapping
+
+Port mapping must be defined during container creation, not during docker start.
+
+Example:
+
+docker create --name my-nginx -p 8080:80 custom-nginx
+docker start my-nginx
+
+Accessing the Container
+
+Once running, the application can be accessed at:
+
+http://localhost:8080
+
+
+Even if EXPOSE is changed, the application will still listen on its internally configured port (e.g., Nginx listens on port 80 by default).
+
+Handling Port Conflicts
+
+A host port can be bound to only one container at a time.
+
+Multiple containers using the same internal port must be mapped to different host ports.
+
+Example:
+
+docker run -p 8080:80 custom-nginx
+docker run -p 8081:80 custom-nginx
+
+Key Takeaway
+
+EXPOSE documents container ports, while port mapping (-p) enables external access. Understanding this distinction is essential for running and scaling containerized applications without conflicts.

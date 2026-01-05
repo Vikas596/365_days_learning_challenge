@@ -1,0 +1,66 @@
+Day 10 – Git Merging, Fast-Forward Merges & Cherry-Pick (Summary)
+
+Git merging is the process of combining changes from one branch into another, commonly used to integrate feature branches into the main branch.
+
+Merging helps keep the codebase unified and supports collaborative development.
+
+Fast-Forward Merge
+
+A fast-forward merge occurs when the target branch has not diverged from the source branch.
+
+Git simply moves the branch pointer forward to the latest commit instead of creating a new merge commit.
+
+This keeps the commit history linear and clean.
+
+When Fast-Forward Merge Happens
+
+No new commits exist on the target branch since the source branch was created.
+
+The branch histories are linear and conflict-free.
+
+Example: Merging alice_part into main when main hasn’t changed.
+
+Benefits of Fast-Forward Merges
+
+Maintains a simple and readable history.
+
+Avoids unnecessary merge commits.
+
+Faster and more efficient.
+
+Ideal for short-lived feature branches with no parallel development.
+
+Note: For long-running branches or when documenting integration points is important, a regular merge commit may be preferred.
+
+Using git cherry-pick
+
+git cherry-pick applies a specific commit from one branch to another.
+
+Useful when you need only selected changes (e.g., bug fixes) instead of merging an entire branch.
+
+Command:
+
+git cherry-pick <commit-hash>
+
+Executing a Fast-Forward Merge
+
+Switch to the target branch:
+
+git checkout main
+
+
+Merge the source branch:
+
+git merge alice_part
+
+
+Verify history:
+
+git log --oneline
+
+
+If conditions are met, Git performs a fast-forward merge without creating a merge commit.
+
+Key Takeaway
+
+Fast-forward merges keep history clean when branches haven’t diverged, while cherry-pick provides fine-grained control for selectively applying individual commits across branches.

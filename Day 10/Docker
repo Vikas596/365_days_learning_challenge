@@ -1,0 +1,101 @@
+Day 10 – Docker Attached vs Detached Mode & Logs (Summary)
+
+Docker containers can run in attached or detached mode, depending on how they interact with the terminal.
+
+Attached Mode
+
+In attached mode, the container’s stdin, stdout, and stderr are connected to your terminal.
+
+Logs and outputs are displayed in real time.
+
+Useful for:
+
+Debugging
+
+Monitoring logs
+
+Interactive work
+
+Default behavior of docker run.
+
+Example:
+
+docker run nginx
+
+
+⚠️ Closing the terminal in attached mode stops the container.
+
+Detached Mode
+
+In detached mode, the container runs in the background.
+
+Terminal is free for other tasks.
+
+Ideal for:
+
+Long-running services
+
+Production workloads
+
+Enabled using the -d flag.
+
+Example:
+
+docker run -d nginx
+
+
+Closing the terminal does not affect the running container.
+
+Using docker start
+
+Starts an existing container.
+
+Default behavior is detached mode.
+
+docker start <container-id-or-name>
+
+
+To start in attached mode:
+
+docker start -a <container-id-or-name>
+
+Viewing Container Logs
+
+Logs of detached containers can be viewed using:
+
+docker logs <container-id-or-name>
+
+
+Follow logs in real time:
+
+docker logs -f <container-id-or-name>
+
+
+Logs can be viewed without stopping the container.
+
+Combining Common Docker Flags
+
+Multiple flags can be used together:
+
+docker run -d -p 8080:80 --name my-nginx nginx
+
+
+Flags explained:
+
+-d → Run in detached mode
+
+-p → Port mapping
+
+--name → Assign custom container name
+
+Important Notes
+
+You cannot switch modes (attached ↔ detached) without stopping and restarting the container.
+
+There is no performance difference between attached and detached modes.
+
+Containers started with docker start default to detached mode unless -a is used.
+
+Key Takeaway
+
+Attached mode is best for real-time interaction and debugging, while detached mode is ideal for background services and production workloads. Logs bridge the gap by allowing monitoring without attaching to the container.

@@ -1,0 +1,61 @@
+Day 11 – Docker Interactive Mode & Container Access (Summary)
+
+Interactive mode allows real-time interaction with a container through the terminal.
+
+It connects:
+
+stdin → keyboard input
+
+stdout → command output
+
+stderr → error messages
+
+Uses a TTY (pseudo-terminal) to provide a full command-line experience.
+
+When to Use Interactive Mode
+
+Best suited for Linux-based images like ubuntu or alpine.
+
+Ideal for:
+
+Development
+
+Testing
+
+Debugging
+
+Installing packages and configuration changes
+
+Not commonly used for service-based images like Nginx, unless entering a shell manually.
+
+Running a Container in Interactive Mode
+
+Use -i to keep input open and -t to allocate a terminal.
+
+Combined as -it.
+
+docker run -it --name my-ubuntu ubuntu
+
+
+The container provides shell access.
+
+Exiting the shell stops the container if no foreground process exists.
+
+Starting an Existing Container Interactively
+
+Use docker start -ai to reattach to a stopped interactive container.
+
+docker start -ai my-ubuntu
+
+Accessing a Running Container
+
+Use docker exec -it to enter a running container without stopping it.
+
+docker exec -it my-ubuntu /bin/bash
+
+
+A shell must be specified (/bin/bash or /bin/sh).
+
+Key Takeaway
+
+Interactive mode provides direct shell access to containers, making it essential for hands-on work, debugging, and system-level changes inside containers.

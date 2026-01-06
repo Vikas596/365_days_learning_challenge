@@ -1,0 +1,76 @@
+Day 11 – Merge Commits & Merge Conflict Handling (Git Summary)
+
+Merge commits are required when branches have diverged, meaning both the feature branch and the target branch contain new commits.
+
+In such cases, Git cannot perform a fast-forward merge and instead creates a merge commit to combine both branches while preserving individual branch histories.
+
+Why Merge Commits Are Important
+
+Support parallel development by multiple contributors.
+
+Maintain accountability by clearly documenting when branches are integrated.
+
+Preserve a traceable, non-linear history useful for debugging and audits.
+
+Performing a Merge Commit
+
+Switch to the target branch and merge the feature branch:
+
+git checkout main
+git merge bobs_part
+
+
+Git creates a merge commit with two parent commits.
+
+A merge commit message records the context of integration.
+
+Understanding Merge Conflicts
+
+Merge conflicts occur when Git cannot automatically merge changes.
+
+Common causes:
+
+Multiple contributors modifying the same file or lines.
+
+Long-running or heavily diverged branches.
+
+Example conflict message:
+
+CONFLICT (content): Merge conflict in menu.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Conflict Markers Explained
+<<<<<<< HEAD
+Current branch changes
+=======
+Incoming branch changes
+>>>>>>> feature-branch
+
+
+HEAD → current branch
+
+Incoming section → branch being merged
+
+Conflict markers must be removed after resolution.
+
+Resolving Merge Conflicts
+
+Check conflicted files:
+
+git status
+
+
+Edit files and resolve conflicts manually.
+
+Stage resolved files:
+
+git add <filename>
+
+
+Complete the merge:
+
+git commit -m "Resolved merge conflict"
+
+Key Takeaway
+
+Merge commits preserve complete development history when branches diverge, while proper conflict resolution ensures clean and collaborative workflows.

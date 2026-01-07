@@ -1,0 +1,83 @@
+Day 12 – HEAD, Commits & Detached HEAD State (Git Summary)
+
+A commit is a snapshot of the project at a specific point in time.
+
+Commits form a timeline that represents the evolution of the project.
+
+Understanding HEAD
+
+HEAD is a pointer that tells Git where you currently are.
+
+HEAD points to a branch, and that branch points to the latest commit.
+
+When a new commit is created:
+
+The branch pointer moves forward.
+
+HEAD automatically follows the branch.
+
+.git/HEAD File
+
+The .git/HEAD file stores the reference to the current branch (e.g. refs/heads/main).
+
+When switching branches, Git updates this file.
+
+HEAD always reflects the branch’s latest commit unless detached.
+
+Checking Out Old Commits
+
+Checking out an old commit lets you view the project at a past state.
+
+This is useful for:
+
+Debugging
+
+Reviewing history
+
+Testing older versions
+
+git log --oneline
+git checkout <commit-hash>
+
+
+Git allows using the first 7 characters of a commit hash.
+
+Detached HEAD State
+
+When you checkout a commit directly, HEAD points to the commit, not a branch.
+
+This is called a detached HEAD state.
+
+Any new commits made here are not attached to a branch and can be lost.
+
+Reattaching HEAD
+
+Return to the main branch:
+
+git checkout main
+
+
+Go back to the previous position:
+
+git checkout -
+
+
+Save work done in detached HEAD by creating a branch:
+
+git checkout -b new-branch-name
+
+Referencing Commits Relative to HEAD
+
+Git allows navigating commits relative to HEAD using ~.
+
+Examples:
+
+HEAD~1 → previous commit
+
+HEAD~2 → two commits before
+
+git checkout HEAD~1
+
+Key Takeaway
+
+HEAD defines your current position in Git history. Understanding detached HEAD and reattachment prevents accidental loss of work and helps navigate commit history safely.

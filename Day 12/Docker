@@ -1,0 +1,66 @@
+Day 12 – Docker Resource Management (Containers & Images) – Summary
+
+Resource management in Docker is essential to keep systems fast, clean, and efficient.
+
+Unused containers and images consume disk space and system resources, which can slow down development workflows.
+
+Why Resource Management Matters
+
+Optimized performance by freeing disk space.
+
+Reduced clutter for easier container and image management.
+
+Improved workflow by avoiding unnecessary resource usage.
+
+Better utilization of system storage and Docker resources.
+
+Removing Containers
+
+Containers must be stopped before removal.
+
+Use docker rm to delete containers that are no longer needed.
+
+docker rm <container-name>
+
+
+If the container is running, Docker will throw an error.
+
+Stop it first:
+
+docker stop <container-name>
+docker rm <container-name>
+
+Removing Images
+
+Docker images can be removed using docker rmi.
+
+Images cannot be deleted if they are still referenced by containers (even stopped ones).
+
+docker rmi <image-name>
+
+
+Remove dependent containers first if required.
+
+Force Removal (-f flag)
+
+Used when standard removal fails due to dependencies or running state.
+
+Stops and removes resources in one step.
+
+docker rm -f <container-name>
+docker rmi -f <image-name>
+
+
+⚠️ Should be used carefully to avoid accidental data loss.
+
+Best Practices
+
+Regularly clean unused containers and images.
+
+Review Docker resources frequently.
+
+Use force deletion only when necessary.
+
+Key Takeaway
+
+Effective Docker resource management keeps environments clean, efficient, and production-ready, preventing unnecessary system overhead.

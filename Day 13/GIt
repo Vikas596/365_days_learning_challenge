@@ -1,0 +1,66 @@
+Day 13 – Discarding & Unstaging Changes in Git (Summary)
+
+While working on a project, it’s common to make unwanted or experimental changes.
+
+Git provides safe and flexible ways to discard changes or remove files from the staging area without affecting other work.
+
+Discarding Unwanted Changes
+
+Uncommitted changes in the working directory can be reverted back to the last committed state.
+
+This helps maintain a clean and stable codebase.
+
+Using git checkout to Revert Changes
+
+Reverts a file to its state in the last commit.
+
+Discards all local, uncommitted changes in that file.
+
+git checkout HEAD <file>
+git checkout -- <file>
+
+Using git restore (Recommended)
+
+git restore is a dedicated command for undoing changes.
+
+It avoids confusion caused by git checkout, which has multiple purposes.
+
+git restore <file>
+
+
+Restores the file to its last committed state.
+
+Restoring from a Specific Commit
+git restore --source=HEAD~2 <file>
+
+
+Restores the file as it was two commits ago.
+
+Unstaging Files (Without Losing Changes)
+
+Sometimes files are staged accidentally or prematurely.
+
+git restore --staged removes files from staging but keeps changes intact.
+
+git restore --staged <file>
+
+
+Multiple files can be unstaged at once.
+
+Using git status as a Guide
+
+git status shows:
+
+Current branch
+
+Staged files
+
+Unstaged files
+
+Suggested next commands
+
+Acts as a built-in helper for managing changes safely.
+
+Key Takeaway
+
+Git allows you to undo safely and precisely—whether discarding unwanted changes or unstaging files—helping you keep commits clean and intentional.

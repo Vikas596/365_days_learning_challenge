@@ -1,0 +1,61 @@
+Day 14 – Git Reset & Revert (Undoing Changes Correctly) – Summary
+
+Git provides multiple ways to undo changes depending on whether you want to rewrite history or preserve it.
+
+The two most important commands for this are git reset and git revert.
+
+Understanding git reset
+
+git reset moves the HEAD pointer back to a specific commit.
+
+All commits after that point are removed from commit history.
+
+The actual file changes may remain staged, unstaged, or be deleted depending on the reset type.
+
+Best used for local commits that have not been pushed.
+
+Types of git reset
+Reset Type	Commits Removed	Changes Staged	Changes in Working Directory
+Mixed (default)	Yes	No	Yes
+Soft	Yes	Yes	Yes
+Hard	Yes	No	No
+
+Soft reset → uncommit but keep changes staged
+
+Mixed reset → uncommit and unstage changes
+
+Hard reset → completely discard commits and changes (dangerous)
+
+Understanding git revert
+
+git revert undoes changes by creating a new commit.
+
+It does not rewrite history.
+
+Safe for shared and collaborative repositories.
+
+Only the selected commit is reverted; later commits remain unchanged.
+
+git revert <commit-hash>
+
+Reset vs Revert
+
+Use git reset:
+
+For local work
+
+Before pushing commits
+
+When rewriting history is safe
+
+Use git revert:
+
+For shared branches
+
+When history must remain traceable
+
+In team environments
+
+Key Takeaway
+
+git reset is powerful but risky because it rewrites history, while git revert is safer and preferred in collaborative projects.

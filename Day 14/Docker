@@ -1,0 +1,53 @@
+Day 14 – Docker --rm Option & Automatic Container Cleanup (Summary)
+
+The --rm option in Docker helps manage container lifecycles by automatically removing containers once they stop.
+
+It prevents unused or stopped containers from piling up and consuming system resources.
+
+Why --rm Is Important
+
+Keeps the Docker environment clean and clutter-free.
+
+Eliminates the need for manual container removal.
+
+Ideal for temporary, short-lived containers.
+
+Improves workflow efficiency during development and automation.
+
+Using --rm with docker run
+
+When used with docker run, the container is:
+
+Created
+
+Started
+
+Automatically deleted after it stops
+
+docker run --rm --name my-nginx nginx
+
+
+Once the container stops, it is removed automatically.
+
+The container will not appear in docker ps -a.
+
+Using --rm with docker create
+
+You can also apply --rm during container creation.
+
+The container will be removed after it is stopped.
+
+docker create --rm --name my-nginx nginx
+docker start my-nginx
+
+Real-World Use Cases
+
+Development & Testing: Running short-lived scripts or experiments.
+
+CI/CD Pipelines: Automatic cleanup after test execution.
+
+One-time Tasks: Batch jobs, debugging sessions, or isolated checks.
+
+Key Takeaway
+
+The --rm option is best suited for ephemeral containers where persistence is not required, ensuring a clean and efficient Docker environment.

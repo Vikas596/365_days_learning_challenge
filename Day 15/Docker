@@ -1,0 +1,67 @@
+Day 15 – Docker Pruning Commands (Cleanup & Optimization) – Summary
+
+Docker provides pruning commands to remove unused resources and keep the system clean, fast, and efficient.
+
+Over time, stopped containers, unused images, and build cache can consume significant disk space.
+
+Pruning helps reclaim resources and maintain a healthy Docker environment.
+
+Why Docker Pruning Is Important
+
+Improves system performance
+
+Frees disk space
+
+Reduces environment clutter
+
+Simplifies container and image management
+
+Docker Pruning Commands Overview
+1️⃣ docker container prune
+
+Removes all stopped containers
+
+Does not affect running containers
+
+docker container prune
+
+
+Prompts for confirmation before deletion.
+
+Useful for routine cleanup after testing or development.
+
+2️⃣ docker image prune
+
+Removes dangling images (untagged images).
+
+With -a, removes all unused images (not linked to running containers).
+
+docker image prune
+docker image prune -a
+
+
+Helps maintain a clean image repository.
+
+3️⃣ docker system prune
+
+Performs a full cleanup:
+
+Stopped containers
+
+Dangling images
+
+Unused networks
+
+Build cache
+
+docker system prune
+docker system prune -a
+
+
+-a removes all unused images, not just dangling ones.
+
+Most powerful cleanup command (use carefully).
+
+Key Takeaway
+
+Docker pruning commands help maintain a lean and optimized environment, especially useful during development, testing, and CI/CD workflows.

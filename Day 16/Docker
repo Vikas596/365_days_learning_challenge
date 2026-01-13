@@ -1,0 +1,80 @@
+Day 16 – Docker docker cp Command (File Transfer) – Summary
+
+The docker cp command allows you to copy files and directories between a Docker container and the host machine.
+
+It works in both directions:
+
+Host → Container
+
+Container → Host
+
+This command is useful when you need to:
+
+Inject configuration files into containers
+
+Extract logs, reports, or generated data
+
+Debug or inspect container output without rebuilding images
+
+Basic Syntax
+docker cp <source_path> <destination_path>
+
+
+<source_path> can be:
+
+A host path
+
+A container path (container-name:/path)
+
+<destination_path> can also be on the host or inside a container.
+
+You can reference containers using container name or container ID.
+
+Copying Files from Host to Container
+
+Used when you want to move files into a running container.
+
+docker cp host_test_file.txt ubuntu-container:/container_file_path.txt
+
+
+Copies host_test_file.txt from host into the container.
+
+Useful for:
+
+Adding test files
+
+Updating configs
+
+Debugging containers
+
+Copying Files from Container to Host
+
+Used when you want to extract files from a container.
+
+docker cp ubuntu-container:/container_test_file.txt host_file_path.txt
+
+
+Copies files from container to host.
+
+Useful for:
+
+Retrieving logs
+
+Exporting generated files
+
+Debugging application output
+
+Tips & Best Practices
+
+Always verify paths (both source and destination).
+
+Use docker ps to ensure the container exists and is accessible.
+
+Watch out for file permissions when copying files.
+
+Works for both running and stopped containers.
+
+Key Takeaway
+
+docker cp is a simple yet powerful tool for transferring files between host and containers without rebuilding images or using volumes.
+

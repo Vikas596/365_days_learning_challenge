@@ -1,0 +1,120 @@
+Day 17 – Docker Volumes (Persistent Data with Named Volumes) – Summary
+
+Containers are ephemeral by nature, meaning data inside them is lost when containers are removed.
+
+Docker volumes solve this problem by providing persistent storage that exists independently of containers.
+
+Types of Data in Docker
+
+Application Data
+
+Packaged inside Docker images
+
+Read-only and consistent across environments
+
+Temporary Data
+
+Stored in the container’s writable layer
+
+Includes logs, cache, temporary files
+
+Deleted when the container is removed
+
+Permanent Data
+
+Must persist beyond container lifecycle
+
+Stored using Docker volumes
+
+What Are Docker Volumes?
+
+Docker volumes are managed storage locations outside the container filesystem.
+
+They allow data to:
+
+Persist after container deletion
+
+Be shared across multiple containers
+
+Be backed up and restored easily
+
+Named Volumes
+
+Named volumes have explicit names, making them easy to manage.
+
+Ideal for:
+
+Databases
+
+Logs
+
+Configuration files
+
+Fully managed by Docker.
+
+Creating a Named Volume
+docker volume create my-volume
+
+
+Creates a persistent volume on the host.
+
+Docker manages the location and lifecycle.
+
+Using a Named Volume with a Container
+docker run -v my-volume:/data ubuntu
+
+
+Mounts my-volume to /data inside the container.
+
+Data written to /data persists even if the container is removed.
+
+If the volume doesn’t exist, Docker creates it automatically.
+
+Sharing a Volume Across Multiple Containers
+docker volume create my-volume
+
+docker run --name container1 -v my-volume:/data ubuntu
+docker run --name container2 -v my-volume:/data ubuntu
+
+
+Both containers can read and write to the same data.
+
+Useful for shared storage scenarios.
+
+Listing Docker Volumes
+docker volume ls
+
+
+Displays all volumes with driver and volume name.
+
+Default driver is local.
+
+Key Takeaway
+
+Docker volumes enable safe, persistent, and shareable data storage, making containers suitable for real-world applications.
+
+📊 Day 17 – Docker Volume Commands (For Excel)
+Command	Description
+docker volume create <name>	Creates a named Docker volume
+docker volume ls	Lists all Docker volumes
+docker run -v volume:/path image	Mounts volume to container
+docker run --name c1 -v volume:/path image	Runs container with named volume
+docker ps	Lists running containers
+docker ps -a	Lists all containers
+docker inspect <container>	Shows container volume details
+Excel One-Line Revision Notes
+
+volume = persistent data
+
+named volume = reusable storage
+
+-v = mount volume
+
+data survives container deletion
+
+share data across containers
+
+This is repo-ready, Excel-clean, and core Docker knowledge ✅
+Next strong continuation for Day 18:
+👉 Bind mounts vs volumes (comparison)
+👉 git fetch vs git pull (very important) 🚀

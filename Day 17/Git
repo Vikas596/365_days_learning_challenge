@@ -1,0 +1,65 @@
+Day 17 – Mastering git push & Upstream Branches (Summary)
+
+git push is used to send your local commits to a remote repository, making your changes available to collaborators.
+
+It plays a key role in team collaboration, ensuring everyone works with the latest code.
+
+Basic git push Syntax
+git push <remote> <local-branch>:<remote-branch>
+
+
+Pushes commits from a local branch to a specific remote branch.
+
+If the remote branch does not exist, Git creates it automatically.
+
+Example:
+
+git push origin dolphin:aquatic
+
+
+Pushes local dolphin branch to aquatic branch on origin.
+
+Using git push -u (Upstream Tracking)
+
+The -u (or --set-upstream) flag sets a tracking relationship between local and remote branches.
+
+Once set, future pushes and pulls become simpler.
+
+git push -u origin dolphin
+
+
+Equivalent to:
+
+git push -u origin dolphin:dolphin
+
+
+After this, you can push with:
+
+git push
+
+Setting Upstream Manually
+
+You can set or change the upstream branch later using:
+
+git branch --set-upstream-to=origin/main
+
+
+This links your current local branch to origin/main.
+
+Useful when:
+
+Upstream wasn’t set during first push
+
+Reconfiguring existing branches
+
+Common Challenges
+
+Merge conflicts → Resolve locally before pushing.
+
+Permission issues → Ensure correct access to the remote repository.
+
+Out-of-date branches → Regularly sync with the remote.
+
+Key Takeaway
+
+Setting upstream branches simplifies Git workflows, allowing smooth pushes and pulls with minimal commands.

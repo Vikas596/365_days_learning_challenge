@@ -1,0 +1,72 @@
+Day 19 – Docker Anonymous Volumes (Summary for Repo)
+What Are Anonymous Volumes
+
+Anonymous volumes are unnamed Docker volumes created automatically when a container needs external storage.
+
+They are mainly used for temporary or short-lived data.
+
+Docker generates a random unique ID for these volumes instead of a human-readable name.
+
+When to Use Anonymous Volumes
+
+Temporary data processing
+
+Testing or development containers
+
+One-time tasks or scripts
+
+When data does not need to persist after container removal
+
+When you want quick setup with minimal configuration
+
+Creating a Container with an Anonymous Volume
+
+Use -v with only a container path (no volume name).
+
+docker run -v /data ubuntu
+
+
+Docker automatically creates an anonymous volume.
+
+The volume is mounted inside the container at /data.
+
+If the container is removed without --rm, the volume still exists on the host.
+
+Auto-Removing Anonymous Volumes
+
+To automatically remove the container and its anonymous volume, use --rm.
+
+docker run --rm -v /data ubuntu
+
+
+Best for disposable containers.
+
+Ensures no leftover volumes after the container stops.
+
+Viewing Anonymous Volumes
+
+Anonymous volumes appear as random IDs.
+
+docker volume ls
+
+
+Example output:
+
+local  6ab029d26965e6f1175f0bf4122881e38149f600ae3364fece8e07a8593d865a
+
+
+These IDs must be used for manual cleanup if needed.
+
+Anonymous vs Named Volumes
+Feature	Anonymous Volume	Named Volume
+Name	Auto-generated ID	User-defined
+Persistence	Temporary	Persistent
+Reusability	Difficult	Easy
+Best Use	Short-term tasks	Databases, configs, logs
+Key Takeaway
+
+Anonymous volumes = quick, temporary storage
+
+Named volumes = long-term, reusable storage
+
+Use anonymous volumes when cleanup and simplicity matter more than persistence

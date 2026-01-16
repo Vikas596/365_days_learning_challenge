@@ -1,0 +1,121 @@
+Day 18 – Remote Tracking Branches, Fetch & Pull (Summary)
+
+Remote tracking branches help you monitor the state of branches on a remote repository without immediately changing your local branches.
+
+Examples:
+
+Local branch → main
+
+Remote tracking branch → origin/main
+
+In a synchronized state, both main and origin/main point to the same commit.
+
+Local Branch Ahead of Remote
+
+When you commit locally without pushing:
+
+Local branch moves ahead
+
+Remote tracking branch remains unchanged
+
+git status
+
+
+Example output:
+
+Your branch is ahead of 'origin/main' by 2 commits.
+
+
+This means your changes exist only locally and need to be pushed.
+
+Viewing Remote Branches
+
+After cloning, only the default branch is created locally.
+
+Other branches exist only as remote tracking branches.
+
+git branch -r
+
+
+Shows all branches available on the remote (e.g., origin/paris, origin/tokyo).
+
+Switching to a Remote Branch
+
+Git automatically creates a local branch when switching to an existing remote branch.
+
+git switch paris
+
+
+Creates a local paris branch and sets it to track origin/paris.
+
+Switching to a non-existent branch results in an error:
+
+git switch london
+
+Understanding git fetch
+
+git fetch downloads updates from the remote repository.
+
+Updates only remote tracking branches.
+
+Does not modify your local branches.
+
+git fetch origin
+
+
+Ideal when you want to review changes before merging.
+
+Previewing Changes with git fetch --dry-run
+
+Shows what would be fetched without making changes.
+
+git fetch --dry-run
+
+
+Helps you plan before updating tracking branches.
+
+Understanding git pull
+
+git pull = git fetch + git merge
+
+Fetches updates and immediately merges them into your current branch.
+
+git pull origin main
+
+
+Convenient, but may cause merge conflicts if local changes exist.
+
+Handling Merge Conflicts After Pull
+
+Identify conflicted files
+
+Resolve conflicts manually
+
+Stage resolved files
+
+Commit the merge
+
+git add <file>
+git commit
+
+git fetch vs git pull
+
+git fetch
+
+Safer
+
+Review changes first
+
+Manual merge required
+
+git pull
+
+Faster
+
+Auto-merge
+
+Risk of unexpected conflicts
+
+Key Takeaway
+
+Use git fetch for control and inspection, and git pull for quick synchronization when confident about incoming changes.

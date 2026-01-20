@@ -1,0 +1,15 @@
+🐳 Day 19 – Understanding Docker Bind Mounts (Repo Summary)
+
+Today I learned about Docker Bind Mounts, which allow mapping a specific directory from the host machine directly into a Docker container.
+
+Bind mounts create a direct link between host and container directories, enabling real-time data synchronization. Unlike Docker volumes (named or anonymous), bind mounts are not managed by Docker and depend on exact host paths.
+
+Bind mounts are especially useful in:
+
+Development environments
+
+Live code editing
+
+Accessing existing host files inside containers
+
+Any change made inside the container is immediately reflected on the host, and vice versa, making bind mounts ideal when instant data consistency is required.

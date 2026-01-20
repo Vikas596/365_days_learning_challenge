@@ -1,0 +1,25 @@
+📘 Day 19 – Understanding git diff (Repo Summary)
+
+Today I learned how to use git diff to inspect and review changes in a Git repository before committing, staging, or merging code.
+
+git diff is a powerful command that helps compare different states of a repository, such as:
+
+Working directory vs last commit
+
+Staged changes vs last commit
+
+One branch vs another branch
+
+One commit vs another commit
+
+I also understood how to read and interpret diff output, including:
+
++ lines → added content
+
+- lines → removed content
+
+@@ markers → affected line ranges
+
+How Git represents new files and deleted files
+
+Using git diff improves code quality, avoids accidental commits, and ensures a clean and controlled Git history.

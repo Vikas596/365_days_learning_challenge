@@ -1,0 +1,31 @@
+📘 Day 20 – Understanding Git Rebase (Repo Summary with Commands)
+
+Today I learned about Git Rebasing, a technique used to keep a clean and linear commit history by replaying commits from one branch onto another.
+
+I practiced rebasing a feature branch onto the main branch using:
+
+git checkout feature/blog to switch to the feature branch.
+
+git rebase main to replay feature branch commits on top of the latest main.
+
+During rebasing, I understood that:
+
+Git rewrites commit history and generates new commit hashes.
+
+If conflicts occur, Git pauses the rebase process.
+
+Conflicts are resolved manually, staged using git add <file>, and continued with git rebase --continue.
+
+If something goes wrong, the rebase can be canceled using git rebase --abort.
+
+I also compared merge vs rebase:
+
+git merge main preserves branch history using a merge commit.
+
+git rebase main creates a linear history without merge commits.
+
+To visualize how rebasing and merging affect history, I used:
+
+git log --all --graph --oneline --decorate to see commit flow and branching structure.
+
+I learned that rebasing should be used only on local or private branches, and should be avoided on shared or already pushed branches to prevent collaboration issues.

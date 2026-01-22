@@ -1,0 +1,21 @@
+🐳 Day 20 – Docker Volume Cleanup & Management (Repo Summary)
+
+Today I learned how to identify, inspect, and clean up unused Docker volumes to keep the Docker environment clean, efficient, and optimized.
+
+Unused volumes are usually created when containers are removed but their volumes are left behind. Over time, these volumes consume disk space and create clutter.
+
+I worked with the following commands:
+
+Used docker volume ls to list all Docker volumes.
+
+Used docker volume ls -f dangling=true to identify unused (dangling) volumes.
+
+Removed a specific named volume using docker volume rm <volume-name>.
+
+Removed anonymous volumes using their volume IDs with docker volume rm <volume-id>.
+
+Cleaned up all unused anonymous volumes using docker volume prune.
+
+Performed a complete cleanup of all unused volumes (named + anonymous) using docker volume prune -a.
+
+These commands help maintain better storage management, cleaner Docker setups, and improved system performance.

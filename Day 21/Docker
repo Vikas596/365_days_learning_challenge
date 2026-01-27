@@ -1,0 +1,32 @@
+🚀 Day 21 – Docker Networks (Repo Summary)
+
+Today I learned how Docker networks control communication between containers and the internet.
+
+🔹 What I understood
+
+Docker networks define how containers talk to each other and external services
+
+By default, containers use the bridge network
+
+Bridge network provides:
+
+Private communication between containers on the same host
+
+Internet access via NAT
+
+Docker handles DNS resolution automatically using host DNS
+
+Internet connectivity inside containers can be tested using lightweight images like Alpine
+
+Containers can be fully isolated from the network using --network none
+
+🔹 Key Docker Network Concepts
+
+Bridge network → Internet access + container-to-container communication
+
+DNS inside container → Resolves domain names like google.com
+
+Network isolation → Achieved using --network none
+
+📌 Key Takeaway:
+Docker networking controls connectivity, isolation, and security. Understanding bridge and none networks is essential for real-world container setups.

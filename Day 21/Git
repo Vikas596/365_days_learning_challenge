@@ -1,0 +1,114 @@
+📘 Day 21 – Git Interactive Rebase (Repo Summary)
+🔹 Topic: Interactive Rebase (git rebase -i)
+
+Interactive rebase is a powerful Git feature that allows you to rewrite and clean commit history in a controlled and intentional way. It helps transform a messy or noisy commit log into a clear, logical, and linear history before merging code.
+
+Using interactive rebase, you can:
+
+Fix commit message typos
+
+Combine related commits
+
+Reorder commits logically
+
+Remove unnecessary or wrong commits
+
+🔹 Starting an Interactive Rebase
+
+To edit recent commits, interactive rebase is started using:
+
+git rebase -i HEAD~N
+
+
+Example:
+
+git rebase -i HEAD~7
+
+
+This opens the last 7 commits in an editor and allows you to decide what to do with each commit.
+
+🔹 Common Interactive Rebase Commands (Used Inside Editor)
+pick    → keep commit as-is
+reword  → change commit message
+edit    → modify commit content
+squash  → combine commit with previous one (keep messages)
+fixup   → combine commit and discard message
+drop    → delete commit completely
+
+🔹 Fixing a Commit Message (Reword)
+
+To correct a typo in a recent commit message:
+git rebase -i HEAD~2
+
+
+Change:
+
+pick <commit-hash>
+
+
+to:
+
+reword <commit-hash>
+
+
+This updates the commit message and rewrites the commit hash.
+
+🔹 Combining Commits (Squash / Fixup)
+
+To combine multiple related commits into one:
+
+git rebase -i HEAD~4
+
+
+Change the second commit to:
+
+squash <commit-hash>
+
+
+or:
+
+fixup <commit-hash>
+
+
+This creates a single, clean commit for related changes.
+
+🔹 Removing Unwanted Commits (Drop)
+
+To remove an unnecessary commit from history:
+
+git rebase -i HEAD~1
+
+
+Change:
+
+pick <commit-hash>
+
+
+to:
+
+drop <commit-hash>
+
+
+This removes the commit and its changes completely.
+
+🔹 Handling Conflicts During Rebase
+
+If conflicts occur:
+
+git add <file>
+git rebase --continue
+
+
+To cancel rebase completely:
+
+git rebase --abort
+
+🔹 Visualizing Commit History
+
+To clearly understand how rebase changes history:
+
+git log --all --graph --oneline --decorate
+
+🔹 Key Takeaway
+
+Interactive rebase is best used before pushing code or on feature branches. It helps maintain a clean, readable history but should be avoided on shared or already-pushed branches.

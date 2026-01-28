@@ -1,0 +1,63 @@
+📘 Day 22 – Docker Networking (Repo Summary)
+
+Today I learned how Docker networking enables containers to communicate with the host machine and with other containers in a clean, predictable way.
+
+🔹 Custom Host Entry (Container → Host Communication)
+
+By default, containers don’t know an easy hostname for the host machine. Using --add-host, we can define a custom DNS entry inside the container.
+
+This avoids hardcoding IP addresses and makes host communication reliable.
+
+Key commands learned:
+
+docker run --add-host <hostname>:<ip> <image>
+
+Using host.docker.internal with host-gateway
+
+Testing connectivity using ping
+
+Example:
+
+docker run --add-host host.docker.internal:host-gateway -it alpine
+
+ping host.docker.internal
+
+📌 This allows containers to access services running on the host machine safely and consistently.
+
+🔹 User-Defined Docker Networks (Container ↔ Container Communication)
+
+User-defined networks are more powerful than the default bridge network. They allow:
+
+Containers to communicate using container names as hostnames
+
+Automatic DNS resolution
+
+Better isolation and control
+
+Steps learned:
+
+Create a custom network
+
+Run containers attached to that network
+
+Communicate using container names
+
+Example:
+
+docker network create my_network
+
+Run multiple containers with --network my_network
+
+Use ping container-name for communication
+
+📌 Containers on the same user-defined network can talk to each other without IP addresses, using only names.
+
+✅ Key Takeaway
+
+Docker networking becomes much simpler and more powerful when using:
+
+--add-host for container → host communication
+
+User-defined networks for container → container communication
+
+These concepts are critical for real-world microservices and DevOps setups.

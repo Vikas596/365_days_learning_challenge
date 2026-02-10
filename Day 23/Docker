@@ -1,0 +1,103 @@
+📅 Day 23 – Docker Network Management
+📌 Overview
+
+Today I learned about Docker Network Management, which is essential for controlling communication between containers and maintaining an organized Docker environment. I explored commands used to list, inspect, remove, and clean unused Docker networks.
+
+🧠 Technologies Learned
+
+Docker Networking
+
+Network Management Commands
+
+🔍 Listing Docker Networks
+
+To view all available Docker networks:
+
+docker network ls
+
+✅ Purpose
+
+Displays all networks along with:
+
+Network ID
+
+Network Name
+
+Driver
+
+Scope
+
+🧱 Default Docker Networks
+
+Docker automatically creates three networks:
+
+Network	Description
+bridge	Default private network allowing container-to-container communication
+host	Uses host machine network directly
+none	Disables networking completely
+🔎 Inspecting Docker Networks
+
+To view detailed information about a network:
+
+docker network inspect <network_name>
+
+✅ Provides Details About
+
+Network driver
+
+Subnet and gateway configuration
+
+Connected containers
+
+Container IP addresses
+
+💡 Use Case
+
+Helpful for troubleshooting and verifying container connectivity.
+
+❌ Removing Docker Networks
+
+To remove a specific Docker network:
+
+docker network rm <network_name>
+
+⚠️ Important Note
+
+Network cannot be removed if containers are connected.
+
+Containers must be stopped or disconnected first.
+
+🧹 Pruning Unused Networks
+
+To remove all unused networks:
+
+docker network prune
+
+✅ Purpose
+
+Removes networks not used by any running container
+
+Keeps Docker environment clean and optimized
+
+💡 Additional Tip
+docker system prune
+
+
+Also removes unused networks along with containers, images, and other unused resources.
+
+🚀 Key Learnings
+
+Docker provides built-in default networks.
+
+Network inspection helps understand container communication.
+
+Removing unused networks improves system efficiency.
+
+Proper network management is important in real-world containerized applications.
+
+📚 Commands Cheat Sheet
+docker network ls
+docker network inspect <network_name>
+docker network rm <network_name>
+docker network prune
+docker system prune

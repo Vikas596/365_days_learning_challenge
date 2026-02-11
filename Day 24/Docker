@@ -1,0 +1,80 @@
+📅 Day 24 – Docker Network Connect & Disconnect
+📌 Overview
+
+Today I learned how to dynamically manage container network connectivity using Docker. These commands allow containers to join or leave networks without stopping them, which is very useful in multi-container and microservices environments.
+
+🔗 Connecting a Container to a Network
+✅ Command
+docker network connect <network_name> <container_name_or_id>
+
+📖 Description
+
+This command connects a running container to a specified Docker network. After connecting, the container can communicate with other containers present in that network.
+
+💡 Use Cases
+
+Multi-container application communication
+
+Adding services dynamically
+
+Expanding application architecture without restarting containers
+
+🧪 Example
+docker network connect frontend_network web_container
+
+
+👉 The container web_container will now join frontend_network and communicate with containers inside that network.
+
+🔌 Disconnecting a Container from a Network
+✅ Command
+docker network disconnect <network_name> <container_name_or_id>
+
+📖 Description
+
+This command removes a container from a specific Docker network while keeping the container running.
+
+💡 Use Cases
+
+Security isolation
+
+Network architecture changes
+
+Maintenance or troubleshooting
+
+Limiting container communication
+
+🧪 Example
+docker network disconnect frontend_network web_container
+
+
+👉 The container web_container will stop communicating with containers in frontend_network.
+
+🔍 Verifying Network Connection
+✅ Command
+docker network inspect <network_name>
+
+📖 Description
+
+Displays detailed network information including:
+
+Connected containers
+
+Container IP addresses
+
+Network configuration
+
+Subnet and gateway details
+
+💡 Use Case
+
+Helps verify whether containers are correctly connected or disconnected from networks.
+
+🚀 Key Learnings
+
+Containers can join multiple networks dynamically.
+
+Containers can leave networks without stopping execution.
+
+Proper network management improves security and communication control.
+
+Network inspection helps troubleshoot connectivity issues.

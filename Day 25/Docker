@@ -1,0 +1,108 @@
+📅 Day 25 – Repo Summary
+📌 Overview
+
+Today I learned about Docker Compose, a tool used to manage multi-container applications. It allows multiple services like web servers, databases, and caches to run together using a single configuration file called docker-compose.yml.
+
+Docker Compose simplifies container orchestration, improves consistency, and reduces manual configuration.
+
+🐳 What is Docker Compose?
+
+Docker Compose allows you to define and manage multiple containers as a single application using a YAML configuration file.
+
+✅ Benefits
+
+Simplified multi-container management
+
+Single configuration file
+
+Easy orchestration
+
+Consistent development and production environments
+
+📄 Docker Compose Configuration File
+✅ File Name
+docker-compose.yml
+
+🧱 Key Components
+version
+
+Defines Compose file syntax version.
+
+services
+
+Defines containers required for the application.
+
+image
+
+Specifies Docker image for the service.
+
+ports
+
+Maps container ports to host ports.
+
+environment
+
+Defines environment variables inside container.
+
+🧪 Example Compose File
+version: '3'
+
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: abcd1234
+
+▶️ Running Docker Compose Services
+✅ Command
+docker compose up
+
+📖 Description
+
+Starts all services defined in the Compose file. It pulls images, creates containers, networks, and starts services.
+
+💡 Use Cases
+
+Running full application stack
+
+Local development setup
+
+Microservices deployment
+
+📊 Viewing Running Services
+✅ Command
+docker compose ps
+
+📖 Description
+
+Shows running services with status and container details.
+
+✅ Command
+docker compose ps -a
+
+📖 Description
+
+Shows all services including stopped ones.
+
+🔍 Viewing Container Details
+✅ Command
+docker ps
+
+📖 Description
+
+Displays running containers with detailed container-level information.
+
+🚀 Key Learnings
+
+Docker Compose simplifies multi-container application setup.
+
+docker-compose.yml defines service configuration.
+
+Compose automatically creates containers and networks.
+
+Helps maintain consistent environments across development and production.
